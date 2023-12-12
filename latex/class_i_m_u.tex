@@ -1,0 +1,65 @@
+\hypertarget{class_i_m_u}{}\doxysection{IMU Class Reference}
+\label{class_i_m_u}\index{IMU@{IMU}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_m_u_a88fec5096255eb1bee175d190d18a88b}{IMU}} (uint8\+\_\+t addr, uint8\+\_\+t SCL, uint8\+\_\+t SDA)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_i_m_u_a88fec5096255eb1bee175d190d18a88b}{IMU\+::\+IMU}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_m_u_a823af2d972af0ed3d5c0eb861260a175}{start}} ()
+\begin{DoxyCompactList}\small\item\em Starts the \mbox{\hyperlink{class_i_m_u}{IMU}} to begin reading values. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_i_m_u_a0aff54d506ed6a13da19ab197f7815ff}{get\+Val}} ()
+\begin{DoxyCompactList}\small\item\em When a new value is availabe, the BNO will provide in the form of i, j, k, and r. Using some math we are able to convert these values to yaw, pitch, and roll angles. Depending on the values used to calculate the roll angle, we may need to change the sign. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_m_u_a88fec5096255eb1bee175d190d18a88b}\label{class_i_m_u_a88fec5096255eb1bee175d190d18a88b}} 
+\index{IMU@{IMU}!IMU@{IMU}}
+\index{IMU@{IMU}!IMU@{IMU}}
+\doxysubsubsection{\texorpdfstring{IMU()}{IMU()}}
+{\footnotesize\ttfamily IMU\+::\+IMU (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{SCL,  }\item[{uint8\+\_\+t}]{SDA }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_i_m_u_a88fec5096255eb1bee175d190d18a88b}{IMU\+::\+IMU}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & Address of the I2C on the \mbox{\hyperlink{class_i_m_u}{IMU}} \\
+\hline
+{\em SCL} & The pin being used for SCL \\
+\hline
+{\em SDA} & The pin being used for SDA \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_m_u_a0aff54d506ed6a13da19ab197f7815ff}\label{class_i_m_u_a0aff54d506ed6a13da19ab197f7815ff}} 
+\index{IMU@{IMU}!getVal@{getVal}}
+\index{getVal@{getVal}!IMU@{IMU}}
+\doxysubsubsection{\texorpdfstring{getVal()}{getVal()}}
+{\footnotesize\ttfamily float IMU\+::get\+Val (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+When a new value is availabe, the BNO will provide in the form of i, j, k, and r. Using some math we are able to convert these values to yaw, pitch, and roll angles. Depending on the values used to calculate the roll angle, we may need to change the sign. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_m_u_a823af2d972af0ed3d5c0eb861260a175}\label{class_i_m_u_a823af2d972af0ed3d5c0eb861260a175}} 
+\index{IMU@{IMU}!start@{start}}
+\index{start@{start}!IMU@{IMU}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void IMU\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts the \mbox{\hyperlink{class_i_m_u}{IMU}} to begin reading values. 
+
+This function starts the \mbox{\hyperlink{class_i_m_u}{IMU}} to it can read from the \mbox{\hyperlink{class_i_m_u}{IMU}} and calculate the rotation vector from the raw data. We are using a BNO085 so it is able to merge the value from the accelerometer and gyro to give us values in the i, j, k and r vectors. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_i_m_u_8h}{IMU.\+h}}\item 
+src/\mbox{\hyperlink{_i_m_u_8cpp}{IMU.\+cpp}}\end{DoxyCompactItemize}

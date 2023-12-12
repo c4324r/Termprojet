@@ -1,0 +1,279 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$ESP32\+Servo.\+h$>$}\newline
+{\ttfamily \#include $<$Adafruit\+\_\+\+BNO08x.\+h$>$}\newline
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$Web\+Server.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}taskshare.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}IMU.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Motor\+Driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}PID\+\_\+\+Controller.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a624f0ff95049ef223c4ad372502ced01}\label{main_8cpp_a624f0ff95049ef223c4ad372502ced01}} 
+\#define {\bfseries IN1\+\_\+1}~13
+\item 
+\mbox{\Hypertarget{main_8cpp_a00255327cfc357b6136390aa65b736ee}\label{main_8cpp_a00255327cfc357b6136390aa65b736ee}} 
+\#define {\bfseries IN2\+\_\+1}~12
+\item 
+\mbox{\Hypertarget{main_8cpp_ac0c643a9004840b6c515d633d89b0420}\label{main_8cpp_ac0c643a9004840b6c515d633d89b0420}} 
+\#define {\bfseries IN1\+\_\+2}~14
+\item 
+\mbox{\Hypertarget{main_8cpp_a9ebe430a8f3883ae81058b7557da839b}\label{main_8cpp_a9ebe430a8f3883ae81058b7557da839b}} 
+\#define {\bfseries IN2\+\_\+2}~27
+\item 
+\mbox{\Hypertarget{main_8cpp_a316d1bbf3dcf9c43e56fe4e25addf626}\label{main_8cpp_a316d1bbf3dcf9c43e56fe4e25addf626}} 
+\#define {\bfseries SERVO}~32
+\item 
+\mbox{\Hypertarget{main_8cpp_ae98ccb48a054fa01c6d69ca72f0fc894}\label{main_8cpp_ae98ccb48a054fa01c6d69ca72f0fc894}} 
+\#define {\bfseries IMU\+\_\+\+ADDR}~0x4A
+\item 
+\mbox{\Hypertarget{main_8cpp_a9625b87456d850c5816b93d8f4177527}\label{main_8cpp_a9625b87456d850c5816b93d8f4177527}} 
+\#define {\bfseries IMU\+\_\+\+SCL}~21
+\item 
+\mbox{\Hypertarget{main_8cpp_ade9e8d91a9ae6c553dd1f4c641282a0c}\label{main_8cpp_ade9e8d91a9ae6c553dd1f4c641282a0c}} 
+\#define {\bfseries IMU\+\_\+\+SDA}~22
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a64d553857a8aad29d88572e1bfdd2712}\label{main_8cpp_a64d553857a8aad29d88572e1bfdd2712}} 
+Share$<$ float $>$ {\bfseries drive\+\_\+val} (\char`\"{}drive\+\_\+val\char`\"{})
+\item 
+\mbox{\Hypertarget{main_8cpp_a0bb30f8242d18d0ec5525e5ef11fae3b}\label{main_8cpp_a0bb30f8242d18d0ec5525e5ef11fae3b}} 
+Share$<$ float $>$ {\bfseries angle\+\_\+val} (\char`\"{}angle\+\_\+val\char`\"{})
+\item 
+\mbox{\Hypertarget{main_8cpp_a15e8783b7a1afe7bcdc4728e2a7f03bf}\label{main_8cpp_a15e8783b7a1afe7bcdc4728e2a7f03bf}} 
+Share$<$ float $>$ {\bfseries pwm\+\_\+val} (\char`\"{}pwm\+\_\+val\char`\"{})
+\item 
+\mbox{\Hypertarget{main_8cpp_aad9148f0df810d7eda98bdbd4eeb9557}\label{main_8cpp_aad9148f0df810d7eda98bdbd4eeb9557}} 
+Share$<$ int $>$ {\bfseries steer\+\_\+val} (\char`\"{}steer\+\_\+val\char`\"{})
+\item 
+\mbox{\Hypertarget{main_8cpp_a48f3f185be3ea2d153c347a157b38d42}\label{main_8cpp_a48f3f185be3ea2d153c347a157b38d42}} 
+Web\+Server {\bfseries server} (80)
+\item 
+void \mbox{\hyperlink{main_8cpp_a2c76379ee09416d38717b0508bda3baa}{balance}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em The task that controls the bike\textquotesingle{}s reaction wheel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aea8b44c0a89e84170af71b081c72ff62}{drive}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em The task that runs the drive motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_af1927d82247d44014ef099d1681483cb}{steer}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em The task that runs the steer servo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a80690a49a1268bbad9e6f4acfd0990b2}{handle\+IMU}} ()
+\begin{DoxyCompactList}\small\item\em Sends the \mbox{\hyperlink{class_i_m_u}{IMU}} value to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aa67ed1eb38ab727eb1b4d3abce08c4a4}{handle\+PWM}} ()
+\begin{DoxyCompactList}\small\item\em Sends the PWM value to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8282893fb7d2adb5c7ec9c97102e0c13}{handle\+KP}} ()
+\begin{DoxyCompactList}\small\item\em Updates the controller with a new KP value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a4f0d21b2fcaaec9feb05ec900bd94d76}{handle\+KI}} ()
+\begin{DoxyCompactList}\small\item\em Updates the controller with a new KI value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ab75ba4d308fc0772e18de0e97b0b6e65}{handle\+KD}} ()
+\begin{DoxyCompactList}\small\item\em Updates the controller with a new KD value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8427468f39342a1990703e9f5ce7fd29}{handle\+Root}} ()
+\begin{DoxyCompactList}\small\item\em Sends the inital webpage on a new reqeust. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a17c28fca639c93575afa55f6a5497a23}{handle\+Steer}} ()
+\begin{DoxyCompactList}\small\item\em Updates the servo value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_adafb60da22e8dd1622442f868d12fd55}{handle\+Drive}} ()
+\begin{DoxyCompactList}\small\item\em Updates the drive value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad6aea58a091cea8ae9cb796285022e65}{handle\+Setpoint}} ()
+\begin{DoxyCompactList}\small\item\em Sends the Setpoint value to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ac5ee48eab4f6bfe930d7684fbf3be098}{reset\+Setpoint}} ()
+\begin{DoxyCompactList}\small\item\em Resets the setpoint value to 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Sets up certain aspects of the bike balancer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Handles a new user when they connect to the ESP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_ab7eaefeafe574cbf45415789bf672403}\label{main_8cpp_ab7eaefeafe574cbf45415789bf672403}} 
+Servo {\bfseries myservo}
+\item 
+\mbox{\Hypertarget{main_8cpp_a888f1949cc679094e9096956f59e2fad}\label{main_8cpp_a888f1949cc679094e9096956f59e2fad}} 
+\mbox{\hyperlink{class_motor_driver}{Motor\+Driver}} {\bfseries motor2} = \mbox{\hyperlink{class_motor_driver}{Motor\+Driver}}(IN1\+\_\+1, IN2\+\_\+1)
+\item 
+\mbox{\Hypertarget{main_8cpp_ac9d7b39809d8488235ab281d80ea4776}\label{main_8cpp_ac9d7b39809d8488235ab281d80ea4776}} 
+\mbox{\hyperlink{class_motor_driver}{Motor\+Driver}} {\bfseries motor1} = \mbox{\hyperlink{class_motor_driver}{Motor\+Driver}}(IN1\+\_\+2, IN2\+\_\+2)
+\item 
+\mbox{\Hypertarget{main_8cpp_a6dee5f5f3630376614fe15b706f3853f}\label{main_8cpp_a6dee5f5f3630376614fe15b706f3853f}} 
+\mbox{\hyperlink{class_i_m_u}{IMU}} {\bfseries bno} = \mbox{\hyperlink{class_i_m_u}{IMU}}(IMU\+\_\+\+ADDR, IMU\+\_\+\+SCL, IMU\+\_\+\+SDA)
+\item 
+\mbox{\Hypertarget{main_8cpp_ad1d54e0d97be76040a43bf9fce34b2f4}\label{main_8cpp_ad1d54e0d97be76040a43bf9fce34b2f4}} 
+\mbox{\hyperlink{class_p_i_d___controller}{PID\+\_\+\+Controller}} {\bfseries controller} = \mbox{\hyperlink{class_p_i_d___controller}{PID\+\_\+\+Controller}}(motor1, 225, 0.\+1, 1000, 0, 1)
+\item 
+\mbox{\Hypertarget{main_8cpp_a587ba0cb07f02913598610049a3bbb79}\label{main_8cpp_a587ba0cb07f02913598610049a3bbb79}} 
+const char $\ast$ {\bfseries ssid} = \char`\"{}Controller\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_aa4a2ebcb494493f648ae1e6975672575}\label{main_8cpp_aa4a2ebcb494493f648ae1e6975672575}} 
+const char $\ast$ {\bfseries password} = \char`\"{}password1\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a0ce953b230abc945187143a2f924967f}\label{main_8cpp_a0ce953b230abc945187143a2f924967f}} 
+const char html\mbox{[}$\,$\mbox{]} {\bfseries PROGMEM}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the main program for the bike balancing program
+
+\begin{DoxyAuthor}{Author}
+Mathew Smith and Cal Miller 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8-\/Dec-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a2c76379ee09416d38717b0508bda3baa}\label{main_8cpp_a2c76379ee09416d38717b0508bda3baa}} 
+\index{main.cpp@{main.cpp}!balance@{balance}}
+\index{balance@{balance}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{balance()}{balance()}}
+{\footnotesize\ttfamily void balance (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+The task that controls the bike\textquotesingle{}s reaction wheel. 
+
+This taks starts reading from the \mbox{\hyperlink{class_i_m_u}{IMU}}. If there is a new data value then it will run the controller with the new value. If there is no new data, then it will countinue to resue the previous data. The controller will update the reaction wheel with a new pwm value, depending on the error from the centerpoint. \mbox{\Hypertarget{main_8cpp_aea8b44c0a89e84170af71b081c72ff62}\label{main_8cpp_aea8b44c0a89e84170af71b081c72ff62}} 
+\index{main.cpp@{main.cpp}!drive@{drive}}
+\index{drive@{drive}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drive()}{drive()}}
+{\footnotesize\ttfamily void drive (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+The task that runs the drive motor. 
+
+The task updates the drive motor pwm every time it is ran. The value it updates with comes from the web server. \mbox{\Hypertarget{main_8cpp_adafb60da22e8dd1622442f868d12fd55}\label{main_8cpp_adafb60da22e8dd1622442f868d12fd55}} 
+\index{main.cpp@{main.cpp}!handleDrive@{handleDrive}}
+\index{handleDrive@{handleDrive}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleDrive()}{handleDrive()}}
+{\footnotesize\ttfamily void handle\+Drive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the drive value. 
+
+Changes the drive value so that the driving task can update the motor with a new value \mbox{\Hypertarget{main_8cpp_a80690a49a1268bbad9e6f4acfd0990b2}\label{main_8cpp_a80690a49a1268bbad9e6f4acfd0990b2}} 
+\index{main.cpp@{main.cpp}!handleIMU@{handleIMU}}
+\index{handleIMU@{handleIMU}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleIMU()}{handleIMU()}}
+{\footnotesize\ttfamily void handle\+IMU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends the \mbox{\hyperlink{class_i_m_u}{IMU}} value to the server. 
+
+The task gets whatever the most recent \mbox{\hyperlink{class_i_m_u}{IMU}} value from the reaction wheel task. It then sends this value to the server so it can update the webpage. \mbox{\Hypertarget{main_8cpp_ab75ba4d308fc0772e18de0e97b0b6e65}\label{main_8cpp_ab75ba4d308fc0772e18de0e97b0b6e65}} 
+\index{main.cpp@{main.cpp}!handleKD@{handleKD}}
+\index{handleKD@{handleKD}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleKD()}{handleKD()}}
+{\footnotesize\ttfamily void handle\+KD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the controller with a new KD value. 
+
+The task takes the new KD value from the server and changes the controller to the new value. \mbox{\Hypertarget{main_8cpp_a4f0d21b2fcaaec9feb05ec900bd94d76}\label{main_8cpp_a4f0d21b2fcaaec9feb05ec900bd94d76}} 
+\index{main.cpp@{main.cpp}!handleKI@{handleKI}}
+\index{handleKI@{handleKI}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleKI()}{handleKI()}}
+{\footnotesize\ttfamily void handle\+KI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the controller with a new KI value. 
+
+The task takes the new KI value from the server and changes the controller to the new value. \mbox{\Hypertarget{main_8cpp_a8282893fb7d2adb5c7ec9c97102e0c13}\label{main_8cpp_a8282893fb7d2adb5c7ec9c97102e0c13}} 
+\index{main.cpp@{main.cpp}!handleKP@{handleKP}}
+\index{handleKP@{handleKP}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleKP()}{handleKP()}}
+{\footnotesize\ttfamily void handle\+KP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the controller with a new KP value. 
+
+The task takes the new KP value from the server and changes the controller to the new value. \mbox{\Hypertarget{main_8cpp_aa67ed1eb38ab727eb1b4d3abce08c4a4}\label{main_8cpp_aa67ed1eb38ab727eb1b4d3abce08c4a4}} 
+\index{main.cpp@{main.cpp}!handlePWM@{handlePWM}}
+\index{handlePWM@{handlePWM}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handlePWM()}{handlePWM()}}
+{\footnotesize\ttfamily void handle\+PWM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends the PWM value to the server. 
+
+The task gets whatever the most recent PWM value from the reaction wheel task. It then sends this value to the server so it can update the webpage. \mbox{\Hypertarget{main_8cpp_a8427468f39342a1990703e9f5ce7fd29}\label{main_8cpp_a8427468f39342a1990703e9f5ce7fd29}} 
+\index{main.cpp@{main.cpp}!handleRoot@{handleRoot}}
+\index{handleRoot@{handleRoot}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleRoot()}{handleRoot()}}
+{\footnotesize\ttfamily void handle\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends the inital webpage on a new reqeust. 
+
+Sends the new user the webpage so that the user can interact with the bike. \mbox{\Hypertarget{main_8cpp_ad6aea58a091cea8ae9cb796285022e65}\label{main_8cpp_ad6aea58a091cea8ae9cb796285022e65}} 
+\index{main.cpp@{main.cpp}!handleSetpoint@{handleSetpoint}}
+\index{handleSetpoint@{handleSetpoint}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleSetpoint()}{handleSetpoint()}}
+{\footnotesize\ttfamily void handle\+Setpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends the Setpoint value to the server. 
+
+The task gets whatever the most recent Setpoint value from the reaction wheel task. It then sends this value to the server so it can update the webpage. \mbox{\Hypertarget{main_8cpp_a17c28fca639c93575afa55f6a5497a23}\label{main_8cpp_a17c28fca639c93575afa55f6a5497a23}} 
+\index{main.cpp@{main.cpp}!handleSteer@{handleSteer}}
+\index{handleSteer@{handleSteer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{handleSteer()}{handleSteer()}}
+{\footnotesize\ttfamily void handle\+Steer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the servo value. 
+
+Changes the steer value so that the steering task can update the servo with a new value \mbox{\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles a new user when they connect to the ESP. 
+
+When a new user connects or makes a new GET request, the server must know which function to run based on the request. The handle client function will tell the server where to go. \mbox{\Hypertarget{main_8cpp_ac5ee48eab4f6bfe930d7684fbf3be098}\label{main_8cpp_ac5ee48eab4f6bfe930d7684fbf3be098}} 
+\index{main.cpp@{main.cpp}!resetSetpoint@{resetSetpoint}}
+\index{resetSetpoint@{resetSetpoint}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{resetSetpoint()}{resetSetpoint()}}
+{\footnotesize\ttfamily void reset\+Setpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the setpoint value to 0. 
+
+This function reset the setpoint of the controller to 0 to counteract possible wandering from dithering \mbox{\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets up certain aspects of the bike balancer. 
+
+Sets up the server, serial, and multitasking function for the bike balancer. \mbox{\Hypertarget{main_8cpp_af1927d82247d44014ef099d1681483cb}\label{main_8cpp_af1927d82247d44014ef099d1681483cb}} 
+\index{main.cpp@{main.cpp}!steer@{steer}}
+\index{steer@{steer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{steer()}{steer()}}
+{\footnotesize\ttfamily void steer (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+The task that runs the steer servo. 
+
+The task updates the steer servo every time it is ran. The value it updates with comes from the web server. 

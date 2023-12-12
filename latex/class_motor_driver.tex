@@ -1,0 +1,57 @@
+\hypertarget{class_motor_driver}{}\doxysection{Motor\+Driver Class Reference}
+\label{class_motor_driver}\index{MotorDriver@{MotorDriver}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_motor_driver_a5d2e39a8b125b0f13f23700c0f877c4f}{Motor\+Driver}} (uint8\+\_\+t addr\+\_\+1, uint8\+\_\+t addr\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Construct a new Motor Driver\+:\+: Motor Driver object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_driver_af8ae1968064164fbfe2a1306fae4005f}{set\+PWM}} (float val)
+\begin{DoxyCompactList}\small\item\em Sets a new PWM value for the motor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_motor_driver_a5d2e39a8b125b0f13f23700c0f877c4f}\label{class_motor_driver_a5d2e39a8b125b0f13f23700c0f877c4f}} 
+\index{MotorDriver@{MotorDriver}!MotorDriver@{MotorDriver}}
+\index{MotorDriver@{MotorDriver}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{MotorDriver()}{MotorDriver()}}
+{\footnotesize\ttfamily Motor\+Driver\+::\+Motor\+Driver (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr\+\_\+1,  }\item[{uint8\+\_\+t}]{addr\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+Construct a new Motor Driver\+:\+: Motor Driver object. 
+
+. This class is intended to be used with a DVR8871 motor driver, although it should work with any motor driver that uses a two pins to control the motor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr\+\_\+1} & Address of the IN1 Pin of the motor driver \\
+\hline
+{\em addr\+\_\+2} & Address of the IN2 Pin of the motor driver \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_motor_driver_af8ae1968064164fbfe2a1306fae4005f}\label{class_motor_driver_af8ae1968064164fbfe2a1306fae4005f}} 
+\index{MotorDriver@{MotorDriver}!setPWM@{setPWM}}
+\index{setPWM@{setPWM}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{setPWM()}{setPWM()}}
+{\footnotesize\ttfamily void Motor\+Driver\+::set\+PWM (\begin{DoxyParamCaption}\item[{float}]{val }\end{DoxyParamCaption})}
+
+
+
+Sets a new PWM value for the motor. 
+
+The class takes a new value between -\/100 and 100 and updates the pwm accordingly. If the values is outside of this range, then it will saturate to the closest values
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & PWM value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_motor_driver_8h}{Motor\+Driver.\+h}}\item 
+src/\mbox{\hyperlink{_motor_driver_8cpp}{Motor\+Driver.\+cpp}}\end{DoxyCompactItemize}

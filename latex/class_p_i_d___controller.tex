@@ -1,0 +1,149 @@
+\hypertarget{class_p_i_d___controller}{}\doxysection{PID\+\_\+\+Controller Class Reference}
+\label{class_p_i_d___controller}\index{PID\_Controller@{PID\_Controller}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_i_d___controller_a6e3ac3fa4f176f0ba7121a78107f13c3}{PID\+\_\+\+Controller}} (\mbox{\hyperlink{class_motor_driver}{Motor\+Driver}} \mbox{\hyperlink{main_8cpp_aea8b44c0a89e84170af71b081c72ff62}{drive}}, float portional, float integral, float derivative, float point, uint8\+\_\+t per)
+\begin{DoxyCompactList}\small\item\em Constructs the PID Controller Class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_i_d___controller_a23949339fa91f135880f3deb0567cfff}{set\+\_\+setpoint}} (float point)
+\begin{DoxyCompactList}\small\item\em Updates the setpoint of the controller. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_p_i_d___controller_a1599d41b3e015c270ee889034abac387}{run}} (float val)
+\begin{DoxyCompactList}\small\item\em Runs the controller to update the motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_i_d___controller_a5d175767e0004c86ea3e3ae88b7b10a8}{set\+\_\+kp}} (float new\+\_\+kp)
+\begin{DoxyCompactList}\small\item\em Updates the KP of the controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_i_d___controller_ab91be76fcd6a0d30b7ccbb8faccf7ba1}{set\+\_\+ki}} (float new\+\_\+ki)
+\begin{DoxyCompactList}\small\item\em Updates the KI of the controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_i_d___controller_ae3bd92731b93f42a4819333a3e910389}{set\+\_\+kd}} (float new\+\_\+kd)
+\begin{DoxyCompactList}\small\item\em Updates the KD of the controller. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_p_i_d___controller_ad199147f91f2f319860b81a8fa0c0584}{get\+\_\+setpoint}} ()
+\begin{DoxyCompactList}\small\item\em Gets the setpoint of the controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_i_d___controller_a6e3ac3fa4f176f0ba7121a78107f13c3}\label{class_p_i_d___controller_a6e3ac3fa4f176f0ba7121a78107f13c3}} 
+\index{PID\_Controller@{PID\_Controller}!PID\_Controller@{PID\_Controller}}
+\index{PID\_Controller@{PID\_Controller}!PID\_Controller@{PID\_Controller}}
+\doxysubsubsection{\texorpdfstring{PID\_Controller()}{PID\_Controller()}}
+{\footnotesize\ttfamily PID\+\_\+\+Controller\+::\+PID\+\_\+\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_motor_driver}{Motor\+Driver}}}]{drive,  }\item[{float}]{portional,  }\item[{float}]{integral,  }\item[{float}]{derivative,  }\item[{float}]{point,  }\item[{uint8\+\_\+t}]{per }\end{DoxyParamCaption})}
+
+
+
+Constructs the PID Controller Class. 
+
+The PID controller needs to know what motor to control, initial PID values, the setpoint, and the period it updates at. 
+\begin{DoxyParams}{Parameters}
+{\em drive} & The motor that the controller updates \\
+\hline
+{\em portional} & The initial KP value \\
+\hline
+{\em integral} & The initial KI value \\
+\hline
+{\em derivative} & The initial KD value \\
+\hline
+{\em point} & The initial setpoint \\
+\hline
+{\em per} & The update period \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_i_d___controller_ad199147f91f2f319860b81a8fa0c0584}\label{class_p_i_d___controller_ad199147f91f2f319860b81a8fa0c0584}} 
+\index{PID\_Controller@{PID\_Controller}!get\_setpoint@{get\_setpoint}}
+\index{get\_setpoint@{get\_setpoint}!PID\_Controller@{PID\_Controller}}
+\doxysubsubsection{\texorpdfstring{get\_setpoint()}{get\_setpoint()}}
+{\footnotesize\ttfamily float PID\+\_\+\+Controller\+::get\+\_\+setpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the setpoint of the controller. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_i_d___controller_a1599d41b3e015c270ee889034abac387}\label{class_p_i_d___controller_a1599d41b3e015c270ee889034abac387}} 
+\index{PID\_Controller@{PID\_Controller}!run@{run}}
+\index{run@{run}!PID\_Controller@{PID\_Controller}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily float PID\+\_\+\+Controller\+::run (\begin{DoxyParamCaption}\item[{float}]{val }\end{DoxyParamCaption})}
+
+
+
+Runs the controller to update the motor. 
+
+The run function task the angle of the bike and compares it to the current setpoint. The error between them then use to calculate the PWM for the motor. The error is also used to change how we change the setpoint due to dithering.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & current angle of the bike \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_i_d___controller_ae3bd92731b93f42a4819333a3e910389}\label{class_p_i_d___controller_ae3bd92731b93f42a4819333a3e910389}} 
+\index{PID\_Controller@{PID\_Controller}!set\_kd@{set\_kd}}
+\index{set\_kd@{set\_kd}!PID\_Controller@{PID\_Controller}}
+\doxysubsubsection{\texorpdfstring{set\_kd()}{set\_kd()}}
+{\footnotesize\ttfamily void PID\+\_\+\+Controller\+::set\+\_\+kd (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+kd }\end{DoxyParamCaption})}
+
+
+
+Updates the KD of the controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+kd} & new KD value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_i_d___controller_ab91be76fcd6a0d30b7ccbb8faccf7ba1}\label{class_p_i_d___controller_ab91be76fcd6a0d30b7ccbb8faccf7ba1}} 
+\index{PID\_Controller@{PID\_Controller}!set\_ki@{set\_ki}}
+\index{set\_ki@{set\_ki}!PID\_Controller@{PID\_Controller}}
+\doxysubsubsection{\texorpdfstring{set\_ki()}{set\_ki()}}
+{\footnotesize\ttfamily void PID\+\_\+\+Controller\+::set\+\_\+ki (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+ki }\end{DoxyParamCaption})}
+
+
+
+Updates the KI of the controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+ki} & new KI value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_i_d___controller_a5d175767e0004c86ea3e3ae88b7b10a8}\label{class_p_i_d___controller_a5d175767e0004c86ea3e3ae88b7b10a8}} 
+\index{PID\_Controller@{PID\_Controller}!set\_kp@{set\_kp}}
+\index{set\_kp@{set\_kp}!PID\_Controller@{PID\_Controller}}
+\doxysubsubsection{\texorpdfstring{set\_kp()}{set\_kp()}}
+{\footnotesize\ttfamily void PID\+\_\+\+Controller\+::set\+\_\+kp (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+kp }\end{DoxyParamCaption})}
+
+
+
+Updates the KP of the controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+kp} & new KP value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_i_d___controller_a23949339fa91f135880f3deb0567cfff}\label{class_p_i_d___controller_a23949339fa91f135880f3deb0567cfff}} 
+\index{PID\_Controller@{PID\_Controller}!set\_setpoint@{set\_setpoint}}
+\index{set\_setpoint@{set\_setpoint}!PID\_Controller@{PID\_Controller}}
+\doxysubsubsection{\texorpdfstring{set\_setpoint()}{set\_setpoint()}}
+{\footnotesize\ttfamily void PID\+\_\+\+Controller\+::set\+\_\+setpoint (\begin{DoxyParamCaption}\item[{float}]{point }\end{DoxyParamCaption})}
+
+
+
+Updates the setpoint of the controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & new Setpoint value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_p_i_d___controller_8h}{PID\+\_\+\+Controller.\+h}}\item 
+src/\mbox{\hyperlink{_p_i_d___controller_8cpp}{PID\+\_\+\+Controller.\+cpp}}\end{DoxyCompactItemize}

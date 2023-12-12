@@ -1,0 +1,35 @@
+\hypertarget{_p_i_d___controller_8h_source}{}\doxysection{PID\+\_\+\+Controller.\+h}
+\label{_p_i_d___controller_8h_source}\index{src/PID\_Controller.h@{src/PID\_Controller.h}}
+\mbox{\hyperlink{_p_i_d___controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ PID\_Controller\_h}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ PID\_Controller\_h}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_i_d___controller_8h}{PID\_Controller.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_motor_driver_8h}{MotorDriver.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_p_i_d___controller}{PID\_Controller}}\{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_motor_driver}{MotorDriver}}\ motor;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ kp;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ ki;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ kd;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ total\_error;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ setpoint;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ uint8\_t\ period;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ prev\_error;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:\ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_p_i_d___controller}{PID\_Controller}}(\mbox{\hyperlink{class_motor_driver}{MotorDriver}}\ \mbox{\hyperlink{main_8cpp_aea8b44c0a89e84170af71b081c72ff62}{drive}},\ \textcolor{keywordtype}{float}\ portional,\ \textcolor{keywordtype}{float}\ integral,\ \textcolor{keywordtype}{float}\ derivative,\ \textcolor{keywordtype}{float}\ point,\ uint8\_t\ per);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d___controller_a23949339fa91f135880f3deb0567cfff}{set\_setpoint}}(\textcolor{keywordtype}{float}\ point);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_p_i_d___controller_a1599d41b3e015c270ee889034abac387}{run}}(\textcolor{keywordtype}{float}\ val);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d___controller_a5d175767e0004c86ea3e3ae88b7b10a8}{set\_kp}}(\textcolor{keywordtype}{float}\ new\_kp);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d___controller_ab91be76fcd6a0d30b7ccbb8faccf7ba1}{set\_ki}}(\textcolor{keywordtype}{float}\ new\_ki);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d___controller_ae3bd92731b93f42a4819333a3e910389}{set\_kd}}(\textcolor{keywordtype}{float}\ new\_kd);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_p_i_d___controller_ad199147f91f2f319860b81a8fa0c0584}{get\_setpoint}}();}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,16 @@
+\hypertarget{_p_i_d___controller_8cpp}{}\doxysection{src/\+PID\+\_\+\+Controller.cpp File Reference}
+\label{_p_i_d___controller_8cpp}\index{src/PID\_Controller.cpp@{src/PID\_Controller.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}PID\+\_\+\+Controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Motor\+Driver.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+This file contains the funciton defitions for the PID Controller. This includes get functions for the PID constants and the setpoint and a run task that calculates a new PWM value for the motor. This value is caluclated from the different between the current angle and current setpoint. The run function also handles dithering and integral value saturation.
+
+\begin{DoxyAuthor}{Author}
+Mathew Smith and Cal Miller 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023-\/12-\/08 
+\end{DoxyDate}
